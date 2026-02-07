@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Staff Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  margin:0;height:100vh;display:flex;
+  background:linear-gradient(120deg,#0f766e,#14b8a6)
+}
+.container{
+  width:100%;display:flex;background:#f8fafc;
+  border-radius:16px;margin:40px;overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,.15)
+}
+.login-box{
+  flex:1;padding:60px;display:flex;
+  flex-direction:column;justify-content:center
+}
+.login-box h2{color:#0f172a}
+.login-box p{color:#64748b;margin-bottom:30px}
+.login-box input{
+  padding:14px;margin-bottom:16px;
+  border-radius:10px;border:1px solid #cbd5f5
+}
+.login-box button{
+  padding:14px;border:none;border-radius:10px;
+  background:#0f766e;color:#fff;font-size:16px;cursor:pointer
+}
+.login-box button:hover{background:#115e59}
+.small{margin-top:16px;color:#475569;font-size:14px}
+
+.benefits{
+  flex:1;background:linear-gradient(160deg,#0f766e,#14b8a6);
+  color:#fff;padding:60px;display:flex;flex-direction:column;justify-content:center
+}
+.benefit-card{
+  background:rgba(255,255,255,.15);
+  padding:24px;border-radius:14px;animation:fade .6s
+}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+@media(max-width:900px){.container{flex-direction:column;margin:0;border-radius:0}}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="login-box">
+  <h2>Staff Login</h2>
+  <p>Support patient care & daily operations</p>
+
+  <input type="email" placeholder="Staff Email">
+  <input type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <div class="small">Authorized staff only 🔑</div>
+</div>
+
+<div class="benefits">
+  <h2>Staff Benefits</h2>
+  <div class="benefit-card" id="card"></div>
+</div>
+
+</div>
+
+<script>
+const benefits=[
+ {title:"Appointment Handling",desc:"Manage bookings and patient schedules."},
+ {title:"Patient Assistance",desc:"Support doctors and patient services."},
+ {title:"Quick Data Access",desc:"View essential patient information securely."},
+ {title:"Operational Efficiency",desc:"Reduce paperwork and speed up workflows."}
+];
+let i=0,card=document.getElementById("card");
+setInterval(()=>{
+  card.innerHTML=`<h3>${benefits[i].title}</h3><p>${benefits[i].desc}</p>`;
+  i=(i+1)%benefits.length;
+},3000);
+</script>
+</body>
+</html>

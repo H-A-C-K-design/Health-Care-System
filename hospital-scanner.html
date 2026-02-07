@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nearby Hospitals Scanner</title>
+
+<!-- Leaflet Map CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f1f5f9;
+}
+header{
+  background:#0f766e;
+  color:white;
+  padding:15px;
+  text-align:center;
+}
+#map{
+  height:65vh;
+}
+.info{
+  padding:15px;
+}
+.hospital{
+  background:white;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.hospital h3{
+  margin:0;
+  color:#0f172a;
+}
+.hospital p{
+  margin:4px 0;
+  color:#475569;
+}
+button{
+  background:#0f766e;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:8px;
+  cursor:pointer;
+}
+button:hover{
+  background:#115e59;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>🏥 Nearby Hospitals Scanner</h2>
+  <p>Find hospitals within 20 KM of your location</p>
+</header>
+
+<div class="info">
+  <button onclick="getLocation()">📍 Scan Hospitals Near Me</button>
+</div>
+
+<div id="map"></div>
+
+<div class="info" id="hospitalList"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+let map;
+
+function getLocation(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(showHospitals, error);
+  }else{
+    alert("Geolocation not supported");
+  }
+}
+
+function error(){
+  alert("Location access denied");
+}
+
+function showHospitals(position){
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+
+  // Initialize map
+  map = L.map('map').setView([lat, lon], 11);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap'
+  }).addTo(map);
+
+  // User marker
+  L.marker([lat, lon]).addTo(map)
+   .bindPopup("📍 Your Location")
+   .openPopup();
+
+  // Overpass API query (20km radius)
+  const query = `
+  [out:json];
+  (
+    node["amenity"="hospital"](around:20000,${lat},${lon});
+    way["amenity"="hospital"](around:20000,${lat},${lon});
+  );
+  out center tags;
+  `;
+
+  fetch("https://overpass-api.de/api/interpreter",{
+    method:"POST",
+    body:query
+  })
+  .then(res=>res.json())
+  .then(data=>displayHospitals(data.elements));
+}
+
+function displayHospitals(hospitals){
+  const list = document.getElementById("hospitalList");
+  list.innerHTML = "<h2>🏨 Hospitals Found</h2>";
+
+  hospitals.forEach(h=>{
+    const hLat = h.lat || h.center.lat;
+    const hLon = h.lon || h.center.lon;
+    const name = h.tags.name || "Unnamed Hospital";
+    const phone = h.tags.phone || h.tags["contact:phone"] || "Not available";
+    const doctor = h.tags.doctor || "Contact hospital reception";
+
+    // Map marker
+    L.marker([hLat, hLon]).addTo(map)
+     .bindPopup(`<b>${name}</b><br>📞 ${phone}`);
+
+    // Display card
+    list.innerHTML += `
+      <div class="hospital">
+        <h3>${name}</h3>
+        <p><b>Doctor:</b> ${doctor}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Location:</b> ${hLat.toFixed(4)}, ${hLon.toFixed(4)}</p>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>

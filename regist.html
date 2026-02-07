@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="poko.css">
+    <title>Hospital Registration</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital Registration</h1>
+        <form>
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="input-group">
+                <label for="role">Select Role</label>
+                <select id="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="patient">Patient</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+           <a href="pa.html"> <button type="submit">Register</button></a>
+        </form>
+        <p class="login-link">Already have an account? <a href="pa.html">Login here</a></p>
+    </div>
+</body>
+</html>

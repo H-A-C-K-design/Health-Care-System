@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureLife Insurance | Comprehensive Protection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0056b3;
+            --secondary: #00b894;
+            --accent: #ff6b6b;
+            --dark: #1a2b4c;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .nav-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 86, 179, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #eef1f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .service-icon i {
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Calculator Section */
+        .calculator {
+            padding: 100px 0;
+            background-color: #f5f7ff;
+        }
+
+        .calculator-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .calculator-form {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-form h3 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .slider-container input {
+            flex: 1;
+        }
+
+        .slider-value {
+            min-width: 50px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .calculator-result {
+            flex: 1;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, #004494 100%);
+            border-radius: 15px;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-result h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .premium-amount {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 30px 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .testimonial-slide i {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+            left: 0;
+            bottom: -10px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .calculator-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                padding-right: 0;
+                margin-bottom: 40px;
+                width: 100%;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.8rem;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .stat-item {
+                flex: 1 0 calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 200px 0 80px;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation for elements on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Secure<span>Life</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#calculator">Premium Calculator</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-btns">
+                <button class="btn btn-secondary">Login</button>
+                <button class="btn btn-primary">Get Quote</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text fade-in">
+                <h2>Secure Your Future With Comprehensive Insurance</h2>
+                <p>We provide reliable insurance solutions to protect what matters most to you - your family, health, home, and business.</p>
+                <button class="btn btn-primary">Explore Plans</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+            <div class="hero-image fade-in">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Insurance protection">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container">
+        <div class="stats fade-in">
+            <div class="stat-item">
+                <div class="stat-number" id="clients-counter">0</div>
+                <div class="stat-text">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="claims-counter">0</div>
+                <div class="stat-text">Claims Settled</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="coverage-counter">0</div>
+                <div class="stat-text">Coverage Options</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="years-counter">0</div>
+                <div class="stat-text">Years of Experience</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Our Insurance Services</h2>
+                <p>We offer a wide range of insurance products to meet your specific needs and provide peace of mind.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health Insurance</h3>
+                    <p>Comprehensive health coverage for individuals, families, and seniors with cashless hospitalization.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Auto Insurance</h3>
+                    <p>Protect your vehicle against accidents, theft, and third-party liabilities with flexible plans.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Insurance</h3>
+                    <p>Safeguard your home and belongings from natural disasters, theft, and unexpected damages.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Life Insurance</h3>
+                    <p>Ensure financial security for your loved ones with our tailored life insurance solutions.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Insurance</h3>
+                    <p>Protect your business from risks, liabilities, and property damage with custom coverage.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel Insurance</h3>
+                    <p>Travel with confidence knowing you're covered for medical emergencies, trip cancellations, and more.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Calculator -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Premium Calculator</h2>
+                <p>Get an instant estimate for your insurance premium based on your needs and profile.</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-form fade-in">
+                    <h3>Calculate Your Premium</h3>
+                    <div class="form-group">
+                        <label for="insurance-type">Insurance Type</label>
+                        <select id="insurance-type">
+                            <option value="health">Health Insurance</option>
+                            <option value="auto">Auto Insurance</option>
+                            <option value="home">Home Insurance</option>
+                            <option value="life">Life Insurance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverage">Coverage Amount: $<span id="coverage-value">100,000</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="coverage" min="10000" max="500000" step="10000" value="100000">
+                            <span class="slider-value" id="coverage-display">$100,000</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age: <span id="age-value">30</span> years</label>
+                        <div class="slider-container">
+                            <input type="range" id="age" min="18" max="70" value="30">
+                            <span class="slider-value" id="age-display">30</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Policy Duration: <span id="duration-value">5</span> years</label>
+                        <div class="slider-container">
+                            <input type="range" id="duration" min="1" max="30" value="5">
+                            <span class="slider-value" id="duration-display">5</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="calculate-btn">Calculate Premium</button>
+                </div>
+                <div class="calculator-result fade-in">
+                    <h3>Your Estimated Premium</h3>
+                    <div class="premium-amount" id="premium-result">$0</div>
+                    <p>Based on your inputs, this is your estimated monthly premium amount.</p>
+                    <p>Premium includes all standard coverage and benefits.</p>
+                    <button class="btn btn-secondary" style="background-color: white; color: var(--primary); margin-top: 30px;">Get Full Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear from some of our satisfied customers.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="testimonial-text">SecureLife made the insurance process so simple. When I had a car accident last year, they handled everything quickly and professionally. I couldn't have asked for better service.</p>
+                        <p class="client-name">- Michael Rodriguez</p>
+                    </div>
+                    <div class="testimonial-slide">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="testimonial-text">Their health insurance plan saved me thousands during my hospital stay. The cashless claim process was seamless, and their customer support team was incredibly helpful.</p>
+                        <p class="client-name">- Sarah Johnson</p>
+                    </div>
+                    <div class="testimonial-slide">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="testimonial-text">As a small business owner, I was worried about finding the right coverage. SecureLife tailored a perfect plan that protects my business without breaking the bank.</p>
+                        <p class="client-name">- David Chen</p>
+                    </div>
+                </div>
+                <div class="slider-nav" id="slider-nav">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SecureLife</h3>
+                    <p style="color: #b0b7c3; margin-top: 20px;">Providing reliable insurance solutions for over 25 years. Your trust and security are our top priorities.</p>
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <i class="fab fa-facebook" style="color: #b0b7c3; font-size: 20px; cursor: pointer;"></i>
+                        <i class="fab fa-twitter" style="color: #b0b7c3; font-size: 20px; cursor: pointer;"></i>
+                        <i class="fab fa-linkedin" style="color: #b0b7c3; font-size: 20px; cursor: pointer;"></i>
+                        <i class="fab fa-instagram" style="color: #b0b7c3; font-size: 20px; cursor: pointer;"></i>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#calculator">Premium Calculator</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Insurance Street, Financial District</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 (800) 555-INSURANCE</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@securelife.com</li>
+                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Mon-Fri: 9AM-6PM, Sat: 10AM-2PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SecureLife Insurance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animated counters
+        function animateCounter(elementId, targetValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            const startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            
+            let currentValue = startValue;
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(currentValue).toLocaleString();
+            }, 16);
+        }
+
+        // Premium calculator functionality
+        function updateSliderValue(sliderId, displayId, prefix = '', suffix = '') {
+            const slider = document.getElementById(sliderId);
+            const display = document.getElementById(displayId);
+            
+            slider.addEventListener('input', function() {
+                if (sliderId === 'coverage') {
+                    display.textContent = prefix + parseInt(this.value).toLocaleString() + suffix;
+                } else {
+                    display.textContent = prefix + this.value + suffix;
+                }
+                
+                // Update the associated value span
+                const valueSpan = document.getElementById(sliderId + '-value');
+                if (valueSpan) {
+                    if (sliderId === 'coverage') {
+                        valueSpan.textContent = parseInt(this.value).toLocaleString();
+                    } else {
+                        valueSpan.textContent = this.value;
+                    }
+                }
+            });
+        }
+
+        // Calculate premium
+        function calculatePremium() {
+            const coverage = parseInt(document.getElementById('coverage').value);
+            const age = parseInt(document.getElementById('age').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const insuranceType = document.getElementById('insurance-type').value;
+            
+            // Base rates per insurance type
+            const baseRates = {
+                health: 0.05,
+                auto: 0.03,
+                home: 0.02,
+                life: 0.015
+            };
+            
+            // Age factor
+            let ageFactor = 1;
+            if (age < 25) ageFactor = 1.2;
+            else if (age > 50) ageFactor = 1.5;
+            
+            // Duration discount
+            const durationDiscount = duration > 10 ? 0.15 : duration > 5 ? 0.1 : 0;
+            
+            // Calculate premium
+            const basePremium = coverage * baseRates[insuranceType];
+            let premium = basePremium * ageFactor;
+            premium = premium * (1 - durationDiscount);
+            
+            // Convert to monthly
+            const monthlyPremium = premium / 12;
+            
+            // Animate the result
+            const resultElement = document.getElementById('premium-result');
+            const targetValue = Math.round(monthlyPremium);
+            let currentValue = parseInt(resultElement.textContent.replace('$', '').replace(',', '')) || 0;
+            
+            const increment = (targetValue - currentValue) / 30;
+            let count = 0;
+            
+            const counter = setInterval(() => {
+                count++;
+                currentValue += increment;
+                if (count >= 30) {
+                    currentValue = targetValue;
+                    clearInterval(counter);
+                }
+                resultElement.textContent = '$' + Math.round(currentValue).toLocaleString();
+            }, 30);
+        }
+
+        // Testimonial slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const track = document.getElementById('testimonial-track');
+        
+        function showSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        // Auto-slide testimonials
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Initialize dots click events
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                showSlide(slideIndex);
+            });
+        });
+
+        // Scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize counters
+            animateCounter('clients-counter', 12500);
+            animateCounter('claims-counter', 8900);
+            animateCounter('coverage-counter', 15);
+            animateCounter('years-counter', 25);
+            
+            // Initialize sliders
+            updateSliderValue('coverage', 'coverage-display', '$');
+            updateSliderValue('age', 'age-display');
+            updateSliderValue('duration', 'duration-display');
+            
+            // Initialize premium calculation
+            document.getElementById('calculate-btn').addEventListener('click', calculatePremium);
+            
+            // Initial calculation
+            calculatePremium();
+            
+            // Check scroll position for animations
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Check on initial load
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.08)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
